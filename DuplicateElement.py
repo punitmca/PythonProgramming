@@ -1,18 +1,19 @@
-def getDuplicatesWithCount(listOfElems):
-    dictOfElems = {}
 
-    for i in listOfElems:
-        if i in dictOfElems:
-            dictOfElems[i]+=1
+def findcountduplist(list):
+    duplist = {}
+
+    for i in list:
+        if i in duplist:
+            duplist[i]+=1
         else:
-            dictOfElems[i]=1
+            duplist[i]=1
+    
+    keyvaluepair ={key:value for key,value in duplist.items() if value>1}
+    return keyvaluepair
 
-     di ={key:value for key, value in dictOfElems.items() if value>1}
-    return di
+list = [2,3,4,4,5,2]
 
-list = [1,1,2,3,2]
+dupelem = findcountduplist(list)
 
-d= getDuplicatesWithCount(list)
-
-for key, value in d.items():
-    print(key, ':' ,value)
+for key,value in dupelem.items():
+    print(key,':',value)
